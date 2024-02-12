@@ -1,4 +1,3 @@
-
 *{
     box-sizing: border-box;
     margin: 0;
@@ -24,6 +23,14 @@ body{
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
     /* Add a bounce animation */
     animation: bounce 1s ease-in-out infinite alternate;
+    /* Add a grid template to align the elements */
+    grid-template-areas: 
+        "text text"
+        "speak stop"
+        "lang lang"
+        "speed speed"
+        "pitch pitch"
+        "volume volume";
 }
 
 #text{
@@ -37,6 +44,8 @@ body{
     outline: 2px solid rgba(120,120,120,0.623);
     /* Add a typing animation */
     animation: typing 2s steps(20) finite ;
+    /* Assign the grid area */
+    grid-area: text;
 }
 
 button{
@@ -55,6 +64,46 @@ button{
 button:hover{
     /* Make the button grow on hover */
     transform: scale(1.1);
+}
+
+#speak{
+    /* Assign the grid area */
+    grid-area: speak;
+}
+
+#stop{
+    /* Assign the grid area */
+    grid-area: stop;
+}
+
+label{
+    /* Align the labels to the left */
+    text-align: left;
+}
+
+select, input{
+    /* Align the inputs to the right */
+    text-align: right;
+}
+
+#lang{
+    /* Assign the grid area */
+    grid-area: lang;
+}
+
+#speed{
+    /* Assign the grid area */
+    grid-area: speed;
+}
+
+#pitch{
+    /* Assign the grid area */
+    grid-area: pitch;
+}
+
+#volume{
+    /* Assign the grid area */
+    grid-area: volume;
 }
 
 /* Define the bounce animation */
