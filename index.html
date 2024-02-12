@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to Speech in JavaScript</title>
+    <title>Text to Speech using  JavaScript,HTML and CSS</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" type="module"></script>
 </head>
@@ -13,6 +13,24 @@
         <label for="text">Text to speak:</label>
         <textarea id="text"></textarea>
         <button id="speak">Speak Text</button>
+        <button id="stop">Stop Text</button>
+        <label for="lang">Language:</label>
+        <select id="lang">
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+            <option value="hi-IN">Hindi (India)</option>
+            <option value="fr-FR">French (France)</option>
+            <option value="es-ES">Spanish (Spain)</option>
+            <!-- add more options as needed -->
+        </select>
+        <label for="speed">Speed:</label>
+        <input id="speed" type="range" min="0.5" max="2" step="0.1" value="1">
+        <label for="pitch">Pitch:</label>
+        <input id="pitch" type="range" min="0" max="2" step="0.1" value="1">
+        <label for="volume">Volume:</label>
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="1">
     </div>
+    <h1>Made and designed by Priyansh</h1>
 </body>
 </html>
+
