@@ -1,1 +1,78 @@
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    background-color: #4FBDBA;
+    display: grid;
+    gap: 20px;
+    width: 500px;
+    max-width: calc(100vw - 40px);
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    /* Add a box-shadow effect */
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    /* Add a bounce animation */
+    animation: bounce 1s ease-in-out infinite alternate;
+}
+
+#text{
+    display: block;
+    height: 100px;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    border: none;
+    resize: none;
+    padding: 8px 10px;
+    outline: 2px solid rgba(120,120,120,0.623);
+    /* Add a typing animation */
+    animation: typing 2s steps(20) finite ;
+}
+
+button{
+    padding: 10px;
+    background: #072227;
+    color: #fff;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    /* Add a hover effect */
+    transition: transform 0.3s;
+}
+
+button:hover{
+    /* Make the button grow on hover */
+    transform: scale(1.1);
+}
+
+/* Define the bounce animation */
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+/* Define the typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
