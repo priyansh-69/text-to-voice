@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     margin: 0;
+       background-color: #808080;
 }
 
 body{
@@ -8,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #808080;
+ 
 }
 
 .container{
