@@ -8,10 +8,11 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: #808080;
 }
 
 .container{
-    background-color: #000000 ; 
+    background-color: #4FBDBA ; 
 /*    #4FBDBA  */
     display: grid;
     gap: 20px;
