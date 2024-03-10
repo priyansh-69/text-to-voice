@@ -40,6 +40,13 @@ p {
   max-width: 800px;
   margin-top: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.speech-input, .speech-options {
+  width: 48%;
 }
 
 label {
@@ -63,12 +70,6 @@ textarea {
   font-size: 1.1rem;
 }
 
-.controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
 button {
   padding: 10px 20px;
-  
+  background-color: #3f51b
