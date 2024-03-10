@@ -1,47 +1,29 @@
-const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById('pause-button');
-const stopButton = document.getElementById('stop-button');
-const textInput = document.getElementById('text');
-const speedInput = document.getElementById('speed');
-let currentCharater;
+var speechBox = document.getElementById('speech-box'),
+    logoIcon = document.getElementById('logo-icon');
 
-playButton.addEventListener('click', () => playText(textInput.value));
+logoIcon.onclick = function () {
+    speechBox.classList.toggle('active');
+}
 
-pauseButton.addEventListener('click', pauseText);
-
-stopButton.addEventListener('click', stopText);
-
-speedInput.addEventListener('input', () => {
-    stopText();
-    playText(utterance.text.substring(currentCharater));
-});
-
-const utterance = new SpeechSynthesisUtterance();
-
-utterance.addEventListener('end', () => {
-    textInput.disabled = false;
-});
-
-utterance.addEventListener('boundary', (e) => {
-    currentCharacter = e.charIndex;
-});
-
-function playText(text) {
-    if (speechSynthesis.paused && speechSynthesis.speaking) {
-        return speechSynthesis.resume();
+function speakFunction(text, onend) {
+    window.speechSynthesis.cancel();
+    var ssu = new SpeechSynthesisUtterance(text);
+    ssu.lang = 'en-US';
+    window.speechSynthesis.speak(ssu);
+    function _wait() {
+        if (!window.speechSynthesis.speaking) {
+            onend();
+            return;
+        }
+        window.setTimeout(_wait, 200);
     }
-    if (speechSynthesis.speaking) return;
-    utterance.text = text;
-    utterance.rate = speedInput.rate || 1;
-    textInput.disabled = true;
-    speechSynthesis.speak(utterance);
+    _wait();
 }
 
-function pauseText() {
-    if (speechSynthesis.speaking) speechSynthesis.pause();
-}
-
-function stopText() {
-    speechSynthesis.resume();
-    speechSynthesis.cancel();
+function speak() {
+    if(text.value == "") {
+        speakFunction("The text box is empty. Please type a text for me to speak.")
+    } else {
+        speakFunction(text.value);
+    }
 }
