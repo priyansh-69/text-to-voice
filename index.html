@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,13 @@
             <option value="fr-FR">French (France)</option>
             <option value="es-ES">Spanish (Spain)</option>
             <!-- add more options as needed -->
-        </select>
+
+
+
+
+
+
+<!--         </select>
         <label for="speed">Speed:</label>
         <input id="speed" type="range" min="0.5" max="2" step="0.1" value="1">
         <label for="pitch">Pitch:</label>
@@ -32,5 +38,57 @@
         <input id="volume" type="range" min="0" max="1" step="0.01" value="1">
     </div>
   <h2>by Priyansh❤️</h2>
+</body>
+</html> --> 
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech Converter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Text to Speech Converter</h1>
+    <p>Speak your text with ease!</p>
+  </header>
+  <main class="container">
+    <label for="text">Text to Speak:</label>
+    <textarea id="text" placeholder="Enter your text here..."></textarea>
+    <div class="controls">
+      <button id="speak">Speak Text</button>
+      <button id="stop" disabled>Stop Text</button>
+    </div>
+    <div class="options">
+      <label for="lang">Language:</label>
+      <select id="lang">
+        <option value="en-US">English (US)</option>
+        <option value="en-GB">English (UK)</option>
+        <option value="hi-IN">Hindi (India)</option>
+        <option value="fr-FR">French (France)</option>
+        <option value="es-ES">Spanish (Spain)</option>
+        </select>
+      <label for="speed">Speed:</label>
+      <input id="speed" type="range" min="0.5" max="2" step="0.1" value="1">
+      <label for="pitch">Pitch:</label>
+      <input id="pitch" type="range" min="0" max="2" step="0.1" value="1">
+      <label for="volume">Volume:</label>
+      <input id="volume" type="range" min="0" max="1" step="0.01" value="1">
+    </div>
+  </main>
+  <footer>
+    <p>Made with ❤️ by Priyansh</p>
+  </footer>
 </body>
 </html>
