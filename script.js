@@ -1,50 +1,47 @@
-function speakText() {
-  // Stop any speaking in progress
-  window.speechSynthesis.cancel();
+const playButton = document.getElementById('play-button');
+const pauseButton = document.getElementById('pause-button');
+const stopButton = document.getElementById('stop-button');
+const textInput = document.getElementById('text');
+const speedInput = document.getElementById('speed');
+let currentCharater;
 
-  // Get the text and options from the input elements
-  const text = textEL.value;
-  if (!text) {
-    alert("Please enter text to speak.");
-    return;
-  }
-  const lang = langEL.value;
-  const speed = parseFloat(speedEL.value); // Ensure speed is a number for SpeechSynthesis
-  const pitch = parseFloat(pitchEL.value); // Ensure pitch is a number for SpeechSynthesis
-  const volume = parseFloat(volumeEL.value); // Ensure volume is a number for SpeechSynthesis
+playButton.addEventListener('click', () => playText(textInput.value));
 
-  // Check for available voices before speaking
-  const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) {
-    console.error("No speech synthesis voices available.");
-    alert("No voices available for text-to-speech.");
-    return;
-  }
+pauseButton.addEventListener('click', pauseText);
 
-  // Create a new speech synthesis utterance with the text and options
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = lang;
-  utterance.rate = speed; // SpeechSynthesis uses rate for speed
-  utterance.pitch = pitch;
-  utterance.volume = volume;
+stopButton.addEventListener('click', stopText);
 
-  // Set the voice based on the selected language
-  const selectedVoice = voices.find(voice => voice.lang === lang);
-  utterance.voice = selectedVoice || voices[0]; // Use the first available voice if the selected one is not found
+speedInput.addEventListener('input', () => {
+    stopText();
+    playText(utterance.text.substring(currentCharater));
+});
 
-  // Log the text value after user input for debugging
-  console.log("Text to speak:", text);
+const utterance = new SpeechSynthesisUtterance();
 
-  // Handle utterance speaking and ending events
-  utterance.onstart = () => {
-    speakEL.disabled = true;
-    stopEL.disabled = false;
-  };
-  utterance.onend = () => {
-    speakEL.disabled = false;
-    stopEL.disabled = true;
-  };
+utterance.addEventListener('end', () => {
+    textInput.disabled = false;
+});
 
-  // Speak the utterance
-  window.speechSynthesis.speak(utterance);
+utterance.addEventListener('boundary', (e) => {
+    currentCharacter = e.charIndex;
+});
+
+function playText(text) {
+    if (speechSynthesis.paused && speechSynthesis.speaking) {
+        return speechSynthesis.resume();
+    }
+    if (speechSynthesis.speaking) return;
+    utterance.text = text;
+    utterance.rate = speedInput.rate || 1;
+    textInput.disabled = true;
+    speechSynthesis.speak(utterance);
+}
+
+function pauseText() {
+    if (speechSynthesis.speaking) speechSynthesis.pause();
+}
+
+function stopText() {
+    speechSynthesis.resume();
+    speechSynthesis.cancel();
 }
