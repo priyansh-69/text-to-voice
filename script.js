@@ -28,6 +28,9 @@ function speakText() {
   utterance.pitch = pitch;
   utterance.volume = volume;
 
+  // Log the text value after user input for debugging
+  console.log("Text to speak:", text);
+
   // Handle utterance speaking and ending events
   utterance.onstart = () => {
     speakEL.disabled = true;
@@ -38,6 +41,14 @@ function speakText() {
     stopEL.disabled = true;
   };
 
+  // Check for available voices before speaking
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) {
+    console.error("No speech synthesis voices available.");
+    alert("No voices available for text-to-speech.");
+    return;
+  }
+
   // Speak the utterance
   window.speechSynthesis.speak(utterance);
 }
@@ -46,9 +57,16 @@ function stopText() {
   window.speechSynthesis.cancel();
 }
 
-// Enable speaking only when synthesis is ready
+// Check for voices availability outside the speakText function
+// to avoid multiple checks and potential errors
 window.speechSynthesis.onvoiceschanged = () => {
-  speakEL.disabled = !window.speechSynthesis.getVoices().length;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) {
+    console.error("No speech synthesis voices available.");
+    alert("No voices available for text-to-speech.");
+    return;
+  }
+  speakEL.disabled = false; // Enable the speak button if voices are found
 };
 
 // Update stop button state on load
