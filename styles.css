@@ -1,130 +1,74 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-       background-color: #808080;
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
- 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
 }
 
-.container{
-    background-color: #4FBDBA ; 
-/*    #4FBDBA  */
-    display: grid;
-    gap: 20px;
-    width: 500px;
-    max-width: calc(100vw - 40px);
-    padding: 30px;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    /* Add a box-shadow effect */
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    /* Add a bounce animation */
-    animation: bounce 1s ease-in-out infinite alternate;
-    /* Add a grid template to align the elements */
-    grid-template-areas: 
-        "text text"
-        "speak stop"
-        "lang lang"
-        "speed speed"
-        "pitch pitch"
-        "volume volume";
+/* Header Styles */
+header {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #3f51b5;
+  color: #fff;
 }
 
-#text{
-    display: block;
-    height: 100px;
-    border-radius: .5rem;
-    font-size: 1.5rem;
-    border: none;
-    resize: none;
-    padding: 8px 10px;
-    outline: 2px solid rgba(120,120,120,0.623);
-    /* Add a typing animation */
-    animation: typing 2s steps(20) finite ;
-    /* Assign the grid area */
-    grid-area: text;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-button{
-    padding: 10px;
-    background: #072227;
-    color: #fff;
-    border-radius: .5rem;
-    cursor: pointer;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    /* Add a hover effect */
-    transition: transform 0.3s;
+p {
+  font-size: 1.2rem;
 }
 
-button:hover{
-    /* Make the button grow on hover */
-    transform: scale(1.1);
+/* Main Content Styles */
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 800px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#speak{
-    /* Assign the grid area */
-    grid-area: speak;
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-#stop{
-    /* Assign the grid area */
-    grid-area: stop;
+textarea,
+input[type="range"],
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  resize: none;
 }
 
-label{
-    /* Align the labels to the left */
-    text-align: left;
+textarea {
+  height: 150px;
+  font-size: 1.1rem;
 }
 
-select, input{
-    /* Align the inputs to the right */
-    text-align: right;
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-#lang{
-    /* Assign the grid area */
-    grid-area: lang;
-}
-
-#speed{
-    /* Assign the grid area */
-    grid-area: speed;
-}
-
-#pitch{
-    /* Assign the grid area */
-    grid-area: pitch;
-}
-
-#volume{
-    /* Assign the grid area */
-    grid-area: volume;
-}
-
-/* Define the bounce animation */
-@keyframes bounce {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-20px);
-    }
-}
-
-/* Define the typing animation */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
+button {
+  padding: 10px 20px;
+  
