@@ -28,6 +28,10 @@ function speakText() {
   utterance.pitch = pitch;
   utterance.volume = volume;
 
+  // Set the voice based on the selected language
+  const selectedVoice = voices.find(voice => voice.lang === lang);
+  utterance.voice = selectedVoice || voices[0]; // Use the first available voice if the selected one is not found
+
   // Log the text value after user input for debugging
   console.log("Text to speak:", text);
 
