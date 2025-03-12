@@ -7,7 +7,7 @@ Overview
 Welcome to the Text to Speech project! This simple web application, designed and crafted by Priyansh ❤️, allows you to convert text into speech using JavaScript. The project utilizes HTML, CSS, and JavaScript to create an interactive user interface for seamless text-to-speech conversion.
 
 Features
-User-friendly Interface: A clean and intuitive interface for effortless text input and control.
+User-friendly Interface: A clean and intuitive interface for effortless text inputs and controls.
 
 Language Selection: Choose from multiple languages to customize the speech output.
 
