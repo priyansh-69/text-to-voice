@@ -44,7 +44,7 @@ Click the "Stop Text" button to halt the speech.
 
 
 Acknowledgments
-Special thanks and mention to Priyansh ❤️ for creating and designing this fantastic Text to Speech project.
+Special thanks to Priyansh ❤️ for creating and designing this fantastic Text to Speech project.
 
 
 
