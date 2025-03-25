@@ -1,5 +1,5 @@
 # text-to-voice
- a text to voice converter
+ a text to voice converter.
 
 
 Text to Speech
